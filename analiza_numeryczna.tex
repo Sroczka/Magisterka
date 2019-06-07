@@ -1,0 +1,83 @@
+\documentclass[12pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{polski}
+
+\usepackage{amsmath}
+\usepackage{color}
+
+\begin{document}
+
+\begin{table}[h!]
+\caption{Porównanie wyestymowanej i 'prawdziwej' ceny standardowej opcji amerykańskiej sprzedaży dla różnych cen wykonania $K$.}
+\centering
+\begin{tabular}{ccccc}
+\hline                       
+ & \textbf{Dolny estymator} & \textbf{Górny estymator} & \textbf{Cena} & \textbf{Cena}\\
+\textbf{K} & \textbf{$\Phi$} & \textbf{$\Theta$} & \textbf{estymowana} & \textbf{rzeczywista}\\
+\hline
+$85$&1.384&1.401&1.3926251316453448&1.4153195143471118\\
+$90$&2.428&2.460&2.444366863759891&2.4730582818844775\\
+$95$&3.926&3.989&3.957720496593192&4.026193509209022\\
+$100$&5.969&6.055&6.012169206334639&6.1097356254733155\\
+$105$&8.553&8.677&8.614906709930144&8.751758478196695\\
+$110$&11.648&11.836&11.741864954859267&11.973945305957859\\
+$115$&15.146&15.616&15.380842006119906&15.773578169346239\\
+\hline 
+\end{tabular}
+Pozostałe parametry: $S_0 = 100$, $r=0.05$, $\sigma = 0.2$, $T=1$ oraz $b = 100$,$N = 100$. Czasy potencjalnego wykonania to: $0,\frac{T}{3},\frac{2T}{3}$ i $T$.
+\label{tab:wycena_am} 
+\end{table}
+
+\begin{table}[h!]
+\caption{Porównanie wyestymowanej i 'prawdziwej' ceny standardowej opcji amerykańskiej sprzedaży dla różnych ilości gałęzi $b$.}
+\centering
+\begin{tabular}{ccccc}
+\hline                       
+ & \textbf{Dolny estymator} & \textbf{Górny estymator} & \textbf{Cena} & \textbf{Cena}\\
+\textbf{b} & \textbf{$\Phi$} & \textbf{$\Theta$} & \textbf{estymowana} & \textbf{rzeczywista}\\
+\hline
+25&3.909&4.097&4.003002295619451&4.026193509209022\\
+50&3.771&3.869&3.8197018442634576&4.026193509209022\\
+75&3.888&3.958&3.9234171510972713&4.026193509209022\\
+100&3.926&3.989&3.957720496593192&4.026193509209022\\
+125&3.854&3.896&3.8753735798349487&4.026193509209022\\
+\hline 
+\end{tabular}
+Pozostałe parametry: $S_0 = 100$, $r=0.05$, $\sigma = 0.2$, $T=1$, $K = 95$ oraz $N = 100$. Czasy potencjalnego wykonania to: $0,\frac{T}{3},\frac{2T}{3}$ i $T$.
+\label{tab:wycena_am_b} 
+\end{table}
+
+
+\begin{table}[h!]
+\caption{Dane dla Facebook na dzień 07.06.2019}
+\centering
+\begin{tabular}{|c|c|}
+\hline                       
+\textbf{Parametr} & \textbf{Wartość} \\
+\hline
+$S_0$&168.33\\
+K&145\\
+$\sigma$&15.50\%\\ %wzięte VIX volatility 
+r&2.25\%\\ %amerykańska interest rate
+\hline 
+\end{tabular}
+\label{tab:wycena_fb} 
+\end{table}
+
+\begin{table}[h!]
+\caption{Dane dla Apple na dzień 07.06.2019}
+\centering
+\begin{tabular}{|c|c|}
+\hline                       
+\textbf{Parametr} & \textbf{Wartość} \\
+\hline
+$S_0$&185.22\\
+K&190\\ %przykladowe
+$\sigma$&15.50\%\\ %wzięte VIX volatility 
+r&2.25\%\\ %amerykańska interest rate
+\hline 
+\end{tabular}
+\label{tab:wycena_apple} 
+\end{table}
+\end{document}
