@@ -95,13 +95,13 @@
 %
 % Krótkie streszczenia po polsku i angielsku
 % - nie dłuższe niż 530 znaków.
-\streszczenie{Tutaj piszemy krótkie streszczenie pracy (nie powinno być dłuższe niż 530 znaków).}
-\streszczenieang{Tutaj piszemy krótkie streszczenie pracy w języku angielskim (nie powinno być dłuższe niż 530 znaków).}
+\streszczenie{Opcje typu omega clock zostały po raz pierwszy zaproponowane przez N. Rodosthenousa i H. Zhanga w 2017. Ten instrument różni się od dotychczas znanych derywatywów tym, że przy wycenie występuje zmienna stopa procentowa zależna od ceny instrumentu podstawowego. Celem pracy jest wyznaczenie ceny tej opcji. Do wyceny użyto metod Monte Carlo, a dokładnie algorytmu zaproponowanego przez Broadiego i Glassermana. Jest to pierwsza w historii wycena opcji typu omega clock.}
+\streszczenieang{Option type Omega clock were first proposed by N. Rodosthenous and H. Zhang in 2017. This instrument differ from others derivatives with discounting during pricing, the interest rate depend from price of option. The main goal of this thesis is finding the price of this option. To pricing was used Monte Carlo method, exactly Broadie Glasserman's algorithm. It is the first valuation of option type Omega clock in history.}
 %
 % Podajemy najważniejsze słowa kluczowe po polsku i angielsku
 % - w obu przypadkach, nie więcej niż 150 znaków.
-\slowakluczowe{tutaj podajemy najważniejsze słowa kluczowe (łącznie nie powinny być dłuższe niż 150 znaków).}  
-\slowakluczoweang{tutaj podajemy najważniejsze słowa kluczowe w języku angielskim (łącznie nie powinny być dłuższe niż 150 znaków)}
+\slowakluczowe{Opcje amerykańskie typu omega clock, Model Blacka-Scholesa, Metoda Broadie Glassermana}  
+\slowakluczoweang{American option type omega clock, Black-Scholes model, Broadie Glasserman method}
 %
 %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -142,11 +142,24 @@
 \maketitle
 \mainmatter
 \tableofcontents
-%\listoffigures
-%\listoftables
+\listoffigures
+\listoftables
 
 {\backmatter \chapter{Wstęp}}
-We wstępie zapowiadamy, o czym będzie praca. Próbujemy zachęcić czytelnika do dalszej lektury, np. krótko informując, dlaczego wybraliśmy właśnie ten temat i co nas w nim zainteresowało.
+
+Opcje nie są nowym instrumentem finansowym. Ich historia sięga czasów starożytnej Grecji - pierwsze informacje dotyczące opcji można znaleźć w $I$ księdzie \textit{Polityki} Arystotelesa, który opisał historię znanego matematyka Talesa z Miletu. Przewidział on obfite zbiory oliwek w następującym roku. Spodziewając się związanego z tym dużego popytu na wykorzystywanie pras do oliwek, przed sezonem zbiorów wykupił prawo ich używania. Spekulacja okazała się słuszna - zbiory były obfite, co umożliwiło Talesowi odnajmowanie pras po wyższej cenie\footnote{Arystoteles,\textit{Polityka}, Warszawa 1964}. Pierwszy stosunkowo dobrze rozwinięty rynek instrumentów pochodnych powstał w XVII w. w Holandii. Pomimo tak długiej historii rynków opcyjnych praw nimi rządzących zaczęto szukać dopiero w XIX wieku. Przełomowym wydarzeniem było wprowadzenie modelu do wyceny europejskiej opcji standardowej na akcje spółek niewypłacających dywidendy wyprowadzonego przez Fishera Blacka i Myrona Scholesa w 1973 roku. Od tego czasu powstało wiele rozszerzeń i modyfikacji tego modelu do wyceny derywatywów innych niż standardowe.
+
+Rynek opcji wciąż intensywnie się rozwija, o czym świadczy wprowadzanie nowych instrumentów pochodnych. Jednym z takich przykładów są opcje typu omega clock. Zostały one po raz pierwszy zaproponowane przez N. Rodosthenousa i H. Zhanga w 2017. Ten instrument różni się od dotychczas znanych derywatywów tym, że przy wycenie występuje zmienna stopa procentowa zależna od ceny instrumentu podstawowego.
+
+Do ustalania ceny niektórych opcji istnieją powszechnie znane narzędzia analityczne, jednak wiele z nich ma skomplikowaną funkcję wypłaty i jest wycenianych za pomocą metod numerycznych. W tej pracy do wyceny opcji typu omega clock użyto metod Monte Carlo, a dokładnie algorytmu opartego na metodzie zaproponowanej przez Broadiego-Glassermana w 1997 roku. Ta metoda estymuje premię opcji używając drzewa cenowego, które wyznacza i powiela możliwe trajektorie ceny instrumentu podstawowego. W wyniku otrzymuje się górne i dolne estymatory, które zbiegają do prawdziwych cen opcji.
+
+Celem pracy jest wyznaczenie po raz pierwszy w historii ceny amerykańskiej opcji typu omega clock na akcje. W pracy znajdują się teoretyczne wzory na estymatory premii opcji i estymowanej ceny, a także wyniki przeprowadzonych symulacji dla danych rzeczywistych.
+
+Przy pisaniu pracy korzystano z literatury źródłowej dotyczącej opcji i ich wyceny. Szczególnie zostały wykorzystane książki: Paula Glassermana \textit{,,Monte Carlo Methods in Financial Engineering''}, Johna Hulla \textit{,,Kontrakty terminowe i opcje. Wprowadzenie''}, Aleksandra Werona i Rafała Werona \textit{,,Inżynieria finansowa''}, a także artykuł Marka Broadiego i Paula Glassermana \textit{,,Pricing American-style securities using simulation''}.
+
+Praca składa się ze wstępu i czterech rozdziałów. W pierwszym przedstawiono wszystkie podstawowe informacje potrzebne do zrozumienia pracy. Zawiera on informacje o opcjach, ich podstawowy podział i funkcje wypłaty dla opcji standardowych. Następnie opisano ruch Browna, który został wykorzystany do prognozy cen akcji. W tym rozdziale opisano również model Blacka-Scholesa, który został wykorzystany do wyceny, a także metody Monte Carlo, których użyto do analizy numerycznej. W drugim rozdziale opisano opcje typu omega clock, które są wyceniane w tej pracy. Przedstawiono model, według którego będzie wyceniana. Rozdział trzeci zawiera pełny opis metody Broadiego-Glassermana oraz jej zastosowanie dla przykładowego drzewa cenowego. Rozdział czwarty, za razem ostatni i najważniejszy, przedstawia analizę numeryczną. Najpierw porównano ceny waniliowej opcji amerykańskiej wyznaczonej za pomocą zaimplementowanego algorytmu i za pomocą sprawdzonych metod, by sprawdzić poprawność metody. Następnie pokazano wycenę amerykańskiej opcji sprzedaży typu omega clock dla danych rzeczywistych.
+
+Wszystkie analizy numeryczne mają na celu uzasadnienie poprawności zaimplementowanego algorytmu do wyceny opartego na metodzie Broadiego Glassermana i doprowadzenie do wyznaczenia sprawiedliwej premii opcji amerykańskiej sprzedaży typu omega clock.
 
 \chapter{Wiadomości wstępne}
 W tym rozdziale znajdują się informacje potrzebne do zrozumienia pracy dotyczące teorii opcji, ich wyceny i metod numerycznych.\\
@@ -352,19 +365,32 @@ Niech $X_1,\ldots,X_n$ będą niezależnymi zmiennymi losowymi o tym samym rozk�
 Głównym celem pracy jest wycena opcji o dyskontowaniu zależnym od cen akcji, na które opiewa opcja, w chwili $t$, po angielsku zwaną \textit{Option type omega clock}, dlatego będziemy dalej używać spolszczonej nazwy angielskiej \textit{opcja typu Omega clock}. \\
 
 Funkcję wypłaty opcji kupna typu omega clock (odpowiednio sprzedaży typu omega clock) za równo europejską i amerykańską opisują wzory zawarte w tabeli (\ref{tab:wyplata}).
-Zmiana względem opcji waniliowych następuje przy wycenie. We wzorze (\ref{eq:B-S}) za czynnik dyskontujący dla opcji standardowych przyjmuje się $\Lambda_t = e^{-rt}$ ze stałą wybraną stopą oprocentowania $r$. Natomiast dla opcji typu \textit{omega clock} czynnik dyskontujący $\Lambda_t$ jest zależny od ceny instrumentu podstawowego w chwili $t$.\\
+Zmiana względem opcji waniliowych następuje przy wycenie. We wzorze (\ref{eq:B-S}) za czynnik dyskontujący przyjmuje się zazwyczaj $\Lambda_t = e^{-\int_0^tr(s)ds}$. Dla opcji standardowych przyjmuje się, że $r(t)$ jest stałą wybraną stopą oprocentowania $r$. Zatem model Blacka-Scholesa (zadany wzorem \ref{eq:B-S}) dla amerykańskiej opcji sprzedaży $X$ w chwili $0$ przyjmuje postać
+\begin{equation*}
+\pi_0(X) = \sup_{\tau \in \mathcal{T}} \{e^{-r\tau} \mathbb{E}^{\mathbb{Q}}[\max(K-S_{\tau},0)]\},
+\end{equation*}
 
-Od teraz w pracy będziemy przyjmować, że cena wykonania opcji to $K = 100$, a za granicę, przy której będzie się zmieniać stopa procentowa dyskontowania, bierzemy $S_t = 95$. Formalnie wzór (\ref{eq:B-S}) dla opcji sprzedaży typu omega clock $X$ przedstawia się następująco
+Natomiast dla opcji typu \textit{omega clock} czynnik dyskontujący $\Lambda_t$ jest zależny od ceny instrumentu podstawowego $S_t$. Za granicę, przy której będzie się zmieniać stopa procentowa dyskontowania, bierzemy $S_t = x$ i nazywamy tą wartość progiem zmiany oprocentowania. Formalnie wzór (\ref{eq:B-S}) dla amerykańskiej opcji sprzedaży typu omega clock $X$ przedstawia się następująco
 \begin{equation}
 \label{eq:B-S_omega}
 \pi_0(X) = \sup_{\tau \in \mathcal{T}}\{ \mathbb{E}^{\mathbb{Q}} [e^{-\int_0^{\tau} \omega(S_s)ds} \max(K-S_{\tau},0)] \},
 \end{equation}
 gdzie
 \begin{equation}
+\label{eq:omega}
+\omega(S_t)=  \left\{ \begin{array}{ll}
+r_1 \textrm{ , jeśli }S_t < x,\\
+r_2 \textrm { , jeśli }S_t \geq x,
+\end{array} \right.
+\textrm{ i } r_1\leq r_2
+\end{equation}
+
+\noindent Przykładowo w pracy do teoretycznej wyceny będziemy przyjmować cenę wykonania $K=100$, próg zmiany $x = 95$. Wówczas funkcja $\omega(\cdot)$ przyjmuje postać
+\begin{equation}
 \label{eq:r}
 \omega(S_t)=  \left\{ \begin{array}{ll}
 0.05 \textrm{ , jeśli }S_t <95,\\
-0.1 \textrm { , jeśli }S_t \geq 95
+0.1 \textrm { , jeśli }S_t \geq 95.
 \end{array} \right.
 \end{equation}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -382,7 +408,7 @@ Mark Broadie i Paul Glasserman w 1997 roku w artykule \textit{Pricing American-s
 
 \section{Opis algorytmu}
 
-Algorytm Broadiego-Galssermana bazuje na tak zwanym drzewie cenowym, które ilustruje zachowanie ceny w czasie. Takie drzewo jest parametryzowane za pomocą liczby węzłów $n$ i liczby gałęzi przypadających na dany węzeł - oznaczany przez $b$, na przykład dla $n=2$, $b=3$ i $S_0 = 100$ otrzymujemy drzewo przedstawione na rysunku (\ref{fig:przyklad}).
+Algorytm Broadiego-Glassermana bazuje na tak zwanym drzewie cenowym, które ilustruje zachowanie ceny w czasie. Takie drzewo jest parametryzowane za pomocą liczby węzłów $n$ i liczby gałęzi przypadających na dany węzeł - oznaczany przez $b$, na przykład dla $n=2$, $b=3$ i $S_0 = 100$ otrzymujemy drzewo przedstawione na rysunku (\ref{fig:przyklad}).
 
 \begin{figure}[h!]
 \textcolor{white}{\encircle{A}}
@@ -487,11 +513,12 @@ Przez $$S_{t_i}^{b_1,\ldots,b_i}, \textrm{ gdzie } i = 1,2,\ldots,n, \textrm{ } 
 \caption{Wybór gałęzi}\label{fig:galezie} 
 \end{figure}
 \textcolor{white}{cos}\\
-\noindent Wycena instrumentów pochodnych wymaga dyskontowania. W poprzednim rozdziale we wzorze Blacka-Scholesa do wyceny opcji typu omega clock (\ref{eq:B-S_omega}) czynnik dyskontujący opisany jest za pomocą $ e^{-\int_0^t\omega(S_s)ds}$, gdzie $\omega(S_t)$ opisana jest wzorem (\ref{eq:r}). W przypadku dyskretnym czynnik dyskontujący między chwilami $t_{i}$ a $t_{i+1}$ przyjmuje postać $ e^{-\frac{1}{n}\omega(S_{t_{i+1}}^{b_1,\ldots, b_{i+1}})}$, ponieważ wartość funkcji $\omega(\cdot)$ nie zależy bezpośrednio od t (przyjmuje wartości stałe na dwóch poziomach zależnych od ceny akcji),a czas między tymi chwilami różni się o $\frac{1}{n}$. W dalszej części pracy  \textit{odpowiednie dyskontowanie} będzie oznaczać 
+\noindent Wycena instrumentów pochodnych wymaga dyskontowania. W poprzednim rozdziale we wzorze Blacka-Scholesa do wyceny opcji typu omega clock (\ref{eq:B-S_omega}) czynnik dyskontujący opisany jest za pomocą $ e^{-\int_0^t\omega(S_s)ds}$, gdzie $\omega(S_t)$ opisana jest wzorem (\ref{eq:r}). W przypadku dyskretnym czynnik dyskontujący między chwilami $t_{i}$ a $t_{i+1}$ przyjmuje postać $ e^{-\frac{1}{n}\omega(S_{t_{i+1}}^{b_1,\ldots, b_{i+1}})}$, ponieważ wartość funkcji $\omega(\cdot)$ nie zależy bezpośrednio od t (przyjmuje wartości stałe na dwóch poziomach zależnych od ceny akcji), a czas między tymi chwilami różni się o $\frac{1}{n}$. W dalszej części tego rozdziału  \textit{odpowiednie dyskontowanie} będzie oznaczać
 \begin{equation*}
+e^{-\frac{1}{n}\omega(S_{t_i}^{b_1,\ldots,b_i})}, \textrm{ gdzie }
 \omega(S_{t_i}^{b_1,\ldots,b_i}) = \left\{ \begin{array}{ll}
-e^{\frac{1}{n}\times 0.1} & \textrm{, dla } S_{t_i}^{b_1,\ldots,b_i} >95\\
-e^{\frac{1}{n}\times 0.05} & \textrm{, dla } S_{t_i}^{b_1,\ldots,b_i} \leq 95.\\
+0.1 & \textrm{, dla } S_{t_i}^{b_1,\ldots,b_i} >95\\
+0.05 & \textrm{, dla } S_{t_i}^{b_1,\ldots,b_i} \leq 95.\\
 \end{array} \right.
 \end{equation*}
 Przykładowe wyznaczenie stóp procentowych jest zaznaczone na wykresie (\ref{fig:przyklad}).
@@ -510,8 +537,13 @@ g_i(S_{t_i}^{b_1,\ldots,b_i}) = \mathbb{E}[e^{-\frac{1}{n}\omega(S_{t_{i+1}}^{b_
 \begin{equation*}
 \textrm{ gdzie }f_i(S_{t_i}^{b_1,\ldots,b_i}) = \max\{h_i(S_{t_i}^{b_1,\ldots,b_i}),g_i(S_{t_i}^{b_1,\ldots,b_i})\}.
 \end{equation*}
-Funkcja $f_i(S_{t_i}^{b_1,\ldots,b_i})$ jest wartością wypłaty opcji w chwili $t_i$ dla ceny akcji $S_{t_i}^{b_1,\ldots,b_i}$.
-
+Funkcja $f_i(S_{t_i}^{b_1,\ldots,b_i})$ jest wartością wypłaty opcji w chwili $t_i$ dla ceny akcji $S_{t_i}^{b_1,\ldots,b_i}$.\\
+Funkcja $g$ w czasie dyskretnym zgodnie z Mocnym Prawem Wielkich Liczb (twierdzenie \ref{th:MPWL}), gdy $b \rightarrow \infty$ przyjmuję postać
+\begin{equation}
+\label{eq:continuation_value}
+g_i(S_{t_i}^{b_1,\ldots,b_i}) = \frac{1}{b}\sum_{j=1}^b e^{-\frac{1}{n}\omega(S_{t_{i+1}}^{b_1,\ldots,b_{i},j})}f_{i+1}(S_{t_{i+1}}^{b_1,\ldots,b_{i},j}),
+\end{equation}
+od tego momentu wzór (\ref{eq:continuation_value}) będzie używany do obliczania oczekiwaną wartość przetrzymania opcji, czy inaczej mówiąc kontynuacji opcji.
 \section{Estymatory}
 W tym podrozdziale znajdują się formalne wzory na dwa estymatory: $\Theta$ i $\Phi$, które odpowiednio zawyżają lub zaniżają prawdziwą premię opcji. W dalszej części zostaną przedstawione dwa twierdzenia, pokazujące, że oba estymatory są asymptotycznie nieobciążone i oba zbiegają do prawdziwej ceny opcji typu omega clock.
 
@@ -529,7 +561,7 @@ Wzór na estymator górny $\Theta$ jest rekurencyjny i wygląda następująco
 \noindent Estymator $\Theta$, w każdym węźle drzewa cenowego, liczymy wybierając większą wartość spośród:
 \begin{itemize}
 \item funkcji wcześniejszej wypłaty w chwili $t_i$, czyli wartości $h_i(S_{t_i}^{b_1,\ldots,b_i})$,
-\item oczekiwanej wartości przetrzymania opcji, tzn. średnią arytmetyczną odpowiednio zdyskontowanych funkcji wypłaty z następujących bezpośrednio węzłów po węźle, dla którego jest liczony estymator. 
+\item oczekiwanej wartości przetrzymania opcji, tzn. średnią arytmetyczną odpowiednio zdyskontowanych funkcji wypłaty z następujących bezpośrednio węzłów po węźle, dla którego jest liczony estymator, czyli wartości $g_i(\Theta_{t_i}^{b_1,\ldots,b_i})$.
 \end{itemize}
 Ilustracja (\ref{fig:gorny}) przedstawia, jak wartość estymatora $\Theta$ jest otrzymywana z danego drzewa cenowego. Poniżej są również przedstawione wszystkie potrzebne obliczenia.
 
@@ -658,11 +690,15 @@ Estymator $\Phi$, podobnie jak estymator $\Theta$, jest  definiowany rekurencyjn
 \begin{equation}
 \label{eq:ksi}
 \xi_{t_i^j}^{b_1,\ldots, b_i} = \left\{ \begin{array}{ll}
-h_i(S_{t_i}^{b_1,\ldots, b_i}), & \textrm{ gdy }h_i(S_{t_i}^{b_1,\ldots, b_i}) \geq \frac{1}{b-1} \sum_{\substack{k = 1\\k \neq j}}^b e^{-\frac{1}{n}\omega(S_{t_{i+1}}^{b_1,\ldots,b_i,j})} \Phi_{t_{i+1}}^{b_1,\ldots, b_i,k}\\
-e^{-\frac{1}{n}\omega(S_{t_{i+1}}^{b_1,\ldots,b_i,j})} \Phi_{t_{i+1}}^{b_1,\ldots, b_i,j}, & \textrm{ gdy }h_i(S_{t_i}^{b_1,\ldots, b_i}) < \frac{1}{b-1} \sum_{\substack{k = 1\\k \neq j}}^b e^{-\frac{1}{n}\omega(S_{t_{i+1}}^{b_1,\ldots,b_i,j})} \Phi_{t_{i+1}}^{b_1,\ldots, b_i,k}
+h_i(S_{t_i}^{b_1,\ldots, b_i}), & \textrm{ gdy }h_i(S_{t_i}^{b_1,\ldots, b_i}) \geq g_i(\Phi_{t_i}^{b_1,\ldots,b_i})\\
+e^{-\frac{1}{n}\omega(S_{t_{i+1}}^{b_1,\ldots,b_i,j})} \Phi_{t_{i+1}}^{b_1,\ldots, b_i,j}, & \textrm{ gdy }h_i(S_{t_i}^{b_1,\ldots, b_i}) < g_i(\Phi_{t_i}^{b_1,\ldots,b_i})
 \end{array} \right.
 \end{equation}
-dla $j=1,\ldots,b$. Teraz można przejść do definicji estymatora $\Phi$:
+gdzie
+\begin{equation*}
+g_i(\Phi_{t_i}^{b_1,\ldots,b_i}) = \frac{1}{b-1} \sum_{\substack{k = 1\\k \neq j}}^b e^{-\frac{1}{n}\omega(S_{t_{i+1}}^{b_1,\ldots,b_i,j})} \Phi_{t_{i+1}}^{b_1,\ldots, b_i,k} \textrm{ dla } j=1,\ldots,b
+\end{equation*}
+Teraz można przejść do definicji estymatora $\Phi$:
 \begin{equation}
 \label{eq:dolny}
 \left\{ \begin{array}{ll}
@@ -875,6 +911,7 @@ Dla każdej realizacji drzewa cenowego estymator dolny $\Phi$ jest zawsze mniejs
 
 \noindent Za pomocą wartości estymatorów można również wyliczyć sprawiedliwą cenę opcji w chwili $0$. Wzór w postaci jawnej podany jest w poniższym fakcie.
 \begin{fact}
+\label{fact}
 Cenę opcji $X$ w chwili $t=0$ można wyznaczyć ze wzoru
 \begin{equation*}
 \pi_0(X) = \frac{1}{2}\max\{\max(K-S_0,0),\Phi\} + \frac{1}{2}\Theta
@@ -889,33 +926,154 @@ Zatem ostatecznie wyznaczona cena opcji dla cen akcji przebiegających zgodnie z
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \chapter{Analiza numeryczna}
 
-\begin{table}[ht]
-\caption{Porównanie wyestymowanej i 'prawdziwej' ceny standardowej opcji amerykańskiej sprzedaży dla różnych cen wykonania $K$. Pozostałe parametry: $S_0 = 100$, $r=0.05$, $\sigma = 0.2$, $T=1$ oraz $b = 50$, $N = 100$.Czasy potencjalnego wykonania to: $0,\frac{T}{3},\frac{2T}{3}$ i $T$.}
+W tym rozdziale zostały zaprezentowane wyniki analizy numerycznej. Najpierw użyto teoretycznego algorytmu Broadiego-Glassermana do wyceny \textit{teoretycznej} standardowej opcji amerykańskiej sprzedaży z wyznaczonymi parametrami, aby porównać wartości estymowane z innymi już sprawdzonymi metodami wyceny. To pozwala sprawdzić poprawność użytej metody Monte Carlo.
+
+Następnie pokazano wycenę amerykańskiej opcji sprzedaży typu omega clock dla danych rzeczywistych dla różnych wartości poszczególnych parametrów.
+
+W ostatniej części tego rozdziału porównano premie waniliowych opcji amerykańskich sprzedaży z premiami odpowiadających im opcji typu omega clock dla danych rzeczywistych ze zmiennym progiem zmiany oprocentowania $x$ i różnymi stopami procentowymi $r_1$ i $r_2$ ze wzoru \ref{eq:omega}. 
+
+Wszystkie symulacje i wyliczenia przeprowadzono za pomocą programu \textit{Python}.
+\newline
+
+W całym rozdziale będziemy wyceniać opcje na akcje w modelu Blacka-Scholesa zatem ceny zachowują się zgodnie ze stochastycznym równaniem różniczkowym zadanym wzorem (\ref{eq:dSt}), którego rozwiązanie przedstawia wzór (\ref{eq:St}). Wykorzystując te wzory i fakt, że proces Wienera ma rozkład normalny $W_t \sim N(0,t)$ otrzymujemy prosty wzór do symulacji ceny akcji w momencie $t_{i}$ mając daną $S_{t_{i-1}}$:
+\begin{equation*}
+S_{t_i} = S_{t_{i-1}} \exp\{(r-\frac{\sigma^2}{2})(t_i-t_{i-1})+\sigma\sqrt{t_i-t_{i-1}}Z)\},
+\end{equation*}
+gdzie $Z \sim N(0,1)$. Zmienne $Z$ są generowane jako liczby pseudolosowe z rozkładu normalnego.
+
+\section{Waniliowa opcja amerykańska}
+
+W literaturze nigdy przedtem nie wyceniano opcji typu omega clock, dlatego nie wiemy, czy nasze wyniki są poprawne. W celu sprawdzenia zaimplementowanego algorytmu wyznaczonego z metody Broadiego-Glassermana zastosujemy go najpierw dla standardowej opcji amerykańskiej i porównamy z wynikami wyceny inną metodą. W ten sposób można będzie potwierdzić czy nasze estymacje są poprawne.\\
+
+Wyniki zostaną zaprezentowane w dwóch tabelach. Pierwsza zawiera wyniki dla zmiennej wartości $K$ - ceny wykonania, a druga dla różnych wartości $b$ - liczby odgałęzień. Cena estymowana jest wyznaczana za pomocą wzoru zawartego w fakcie \ref{fact}. Błąd estymacji wyznaczany jest za pomocą błędu względnego, a zatem oznaczając przez $P$ cenę prawdziwą (liczoną za pomocą sprawdzonych algorytmów), a przez $\hat{P}$ cenę estymowaną obliczany jest za pomocą $$\left|\frac{P-\hat{P}}{P}\right|.$$ Liczbę węzłów bierzemy tylko $n = 3$. Wynika to z faktu, że w chwili $t_n$ jest aż $b^n$ różnych wartości ceny na drzewie cenowym. Zatem wymagania obliczeniowe algorytmu Broadiego-Glassermana wzrastają wykładniczo wraz ze wzrostem ilości węzłów. Jest to główna wada tego algorytmu. Pomimo to, zdaniem Glassermana, nawet dla takiej małej liczby $n$ algorytm ten jest efektywny\footnote{por. Glasserman,P.,\textit{Monte Carlo Methods in Financial Engineering}}. Zgodnie z metodami Monte Carlo, aby otrzymać dobre estymatory nie można korzystać z jednej symulacji (w tym przypadku jednego drzewa cenowego), dlatego generujemy $N$ drzew i następnie wyliczamy z nich średnią empiryczną.
+
+\begin{table}[h!]
+\caption{Porównanie wyestymowanej i 'prawdziwej' ceny standardowej opcji amerykańskiej sprzedaży dla różnych cen wykonania $K$.}
 \centering
 \begin{tabular}{cccccc}
 \hline                       
- & \textbf{Dolny estymator} & \textbf{Górny estymator} & \textbf{Cena} & \textbf{Cena} & \textbf{Błąd}\\
-\textbf{K} & \textbf{$\Phi$} & \textbf{$\Theta$} & \textbf{estymowana} & \textbf{rzeczywista} & \textbf{względny}\\
-\hline 
-$80$&0.6704789259461057&0.6885350873013911&0.6795070066237484&0.7197194775378347&\\
-$85$&1.3124079950879688&1.3439095606499183&1.3281587778689437&1.4153195143471118&\\
-$90$&2.3211225513532536&2.378792362290383&2.3499574568218184&2.4730582818844775&\\
-$95$&3.7897649824469717&3.8846882021807727&3.837226592313872&4.026193509209022&\\
-$100$&5.762169152824109&5.920499192963294&5.841334172893701&6.1097356254733155&\\
-$105$&8.282131244546283&8.512582892809581&8.397357068677932&8.751758478196695&\\
-$110$&11.188053089126626&11.667173710583137&11.42761339985488&11.973945305957859&\\
-$115$&15.03856444559677&15.644231901931995&15.341398173764382&15.773578169346239&\\
-$120$&19.610483334233045&20.268418722577813&19.93945102840543&20.127825677640406&\\
+ & \textbf{Dolny est.} & \textbf{Górny est.} & \textbf{Cena} & \textbf{Cena}&\textbf{Błąd}\\
+\textbf{K} & \textbf{$\Phi$} & \textbf{$\Theta$} & \textbf{estymowana} & \textbf{rzeczywista}&\textbf{bezwzględny}\\
+\hline
+$85$&$1.384$&$1.401$&$1.393$&$1.415$&$1.60$\%\\
+$90$&$2.428$&$2.460$&$2.444$&$2.473$&$1.16$\%\\
+$95$&$3.926$&$3.989$&$3.958$&$4.026$&$1.70$\%\\
+$100$&$5.969$&$6.055$&$6.0122$&$6.110$&$1.60$\%\\
+$105$&$8.553$&$8.677$&$8.615$&$8.752$&$1.56$\%\\
+$110$&$11.648$&$11.836$&$11.742$&$11.974$&$1.94$\%\\
+$115$&$15.146$&$15.616$&$15.381$&$15.774$&$2.49$\%\\
 \hline 
 \end{tabular}
+
+Pozostałe parametry: $S_0 = 100$, $r=0.05$, $\sigma = 0.2$, $T=1$ oraz $b = 100$, $N = 100$.\\ Czasy potencjalnego wykonania to: $0,\frac{T}{3},\frac{2T}{3}$ i $T$.
 \label{tab:wycena_am} 
 \end{table}
 
-{\backmatter \chapter{Podsumowanie}}
-Podsumowanie w pracach matematycznych nie jest obligatoryjne. Warto jednak na zakończenie krótko napisać, co udało nam się zrobić w pracy, a czasem także o tym, czego nie udało się zrobić.
+\noindent Wyniki w tabeli \ref{tab:wycena_am} są zgodne z teoretycznymi założeniami w poprzednim rozdziale. Rzeczywiście w każdym momencie $\Phi \leq \Theta$. Dla naszych symulacji i tych parametrów błąd waha się pomiedzy $1.16\%$ a $2.49\%$. Nie jest to duży błąd, więc uznajemy że zaimplementowana metoda jest poprawna. 
 
-{\backmatter \chapter{Dodatek}}
-Dodatek w pracach matematycznych również nie jest wymagany. Można w nim przedstawić np. jakiś dłuższy dowód, który z pewnych przyczyn pominęliśmy we właściwej części pracy lub (np. w przypadku prac statystycznych) umieścić dane, które analizowaliśmy.
+\begin{table}[h!]
+\caption{Porównanie estymatorów i wyestymowanej ceny standardowej opcji amerykańskiej sprzedaży dla różnych ilości gałęzi $b$.}
+\centering
+\begin{tabular}{cccc}
+\hline                       
+ & \textbf{Dolny est.} & \textbf{Górny est.} & \textbf{Cena}\\
+\textbf{b} & \textbf{$\Phi$} & \textbf{$\Theta$} & \textbf{estymowana}\\
+\hline
+25&3.909&4.097&4.00\\
+50&3.771&3.869&3.820\\
+75&3.888&3.958&3.923\\
+100&3.926&3.989&3.958\\
+125&3.854&3.896&3.875\\
+\hline 
+\end{tabular}
+
+Pozostałe parametry: $S_0 = 100$, $r=0.05$, $\sigma = 0.2$, $T=1$, $K = 95$ oraz $N = 100$. \\ Czasy potencjalnego wykonania to: $0,\frac{T}{3},\frac{2T}{3}$ i $T$.
+\label{tab:wycena_am_b} 
+\end{table}
+
+\noindent W tabeli \ref{tab:wycena_am_b} warto zauważyć, że im większe $b$, tym wartości estymatorów są bliższe sobie, więc zachowują się zgodnie ze stwierdzeniem w twierdzeniu 3.1. Gdy b dąży do nieskończoności oba estymatory zbiegają do prawdziwej ceny opcji.
+
+\section{Opcje typu omega clock}
+
+W tym podrozdziale zajmiemy się analizą wyników symulacji przeprowadzonych dla amerykańskich opcji sprzedaży typu omega clock na jedną akcję. Wyceniane opcje opiewają na akcje Apple Inc. (AAPL).)\\
+
+W analizie zostaną przedstawione: jedna tabela i dwa wykresy.  W tabeli przeprowadzona jest analiza estymatorów i estymowanej ceny dla zmiennej ilości odgałęzień $b$, a na wykresach zależność premii opcji kolejno od progu zmiany oprocentowania użytego do dyskontowania przy wycenie i wartości stóp procentowych użytych do dyskontowania.
+
+\subsection{Dane rzeczywiste}
+Wszystkie parametry wejściowe do wyceny opcji, takie jak $S_0$, zmienność i stopa procentowa są brane z rynku dla Apple Inc. Wysokości cen akcji na przestrzeni roku, notowanych tygodniowo, przedstawiono na wykresie \ref{fig:apple_akcje}.
+
+\begin{figure}[h!]
+\centering
+\includegraphics[scale=1]{apple_akcje.jpg}
+\caption{Tygodniowe ceny zamknięcia dla akcji Apple Inc. Dane zostały wzięte z giełdy amerykańskiej od 11.06.2018 do 10.06.2019.}
+\label{fig:apple_akcje}
+\end{figure}
+ 
+Następne symulacje przeporwadzono dla danych z 07.06.2019. Zostały one zaprezentowane w tabeli \ref{tab:dane_apple}.
+
+\begin{table}[h!]
+\caption{Dane dla Apple na dzień 07.06.2019}
+\centering
+\begin{tabular}{|c|c|}
+\hline                       
+\textbf{Parametr} & \textbf{Wartość} \\
+\hline
+$S_0$&190.15\\
+K&195\\ %przykladowe
+$\sigma$&15.50\%\\ %wzięte VIX volatility 
+r&2.25\%\\ %amerykańska interest rate
+\hline 
+\end{tabular}
+\label{tab:dane_apple} 
+\end{table}
+
+\subsection{Wyniki}
+
+W tabeli \ref{tab:wycena_apple_b} przeprowadzono analizę dla różnych wartości $b$, aby zobaczyć czy estymatory zbiegają do siebie wraz ze wzrostem ilości gałęzi. Pozostałe dane wzięte z tabeli \ref{tab:dane_apple}, a $r_1 = 1$\% i $r_2 = 3$\%, a próg zmiany oprocentowania został ustalony na poziomie $180$.
+
+\begin{table}[h!]
+\caption{Porównanie wyestymowanej i 'prawdziwej' ceny opcji amerykańskiej sprzedaży typu omega clock dla różnych ilości gałęzi $b$.}
+\centering
+\begin{tabular}{cccc}
+\hline                       
+ & \textbf{Dolny estymator} & \textbf{Górny estymator} & \textbf{Cena}\\
+\textbf{b} & \textbf{$\Phi$} & \textbf{$\Theta$} & \textbf{estymowana}\\
+\hline
+25&12.876&13.554&13.215\\
+50&12.683&13.066&12.874\\
+75&12.73&13.019&12.875\\
+100&12.842&13.077&12.959\\
+125&12.744&12.978&12.876\\
+\hline 
+\end{tabular}
+\label{tab:wycena_apple_b} 
+\end{table}
+
+Wnioski z tabeli \ref{tab:wycena_apple_b} są podobne jak z tabeli \ref{tab:wycena_am_b}. Również w tym przypadku wartości estymatorów dolnego i górnego są bliższe sobie wraz ze wzrostem $b$, zatem są coraz bliższe jednej cenie. Można zatem wnioskować, że zbiegają do faktycznej sprawiedliwej premii opcji.
+
+Na kolejnych wykresach przedstawiono zależność premii opcji wraz ze zmianą progu zmiany ceny $x$ ze wzoru (\ref{eq:omega}) w przedziale $[130,250]$, a także zależność premii opcji dla zmiennych $r_1$ i $r_2$ (ze wzoru (\ref{eq:omega})) brane odpowiednio w przedziałach $[0,2.25\%$] i $[2.25\%,4.25\%]$.
+
+\begin{figure}[h!]
+\centering
+\includegraphics[scale=0.9]{apple_zmienny_prog_2.jpg}
+\caption{Wycena amerykańskiej opcji sprzedaży typu omega clock dla zmiennej wartości progu $x$ do zmiany oprocentowania zgodnie ze wzorem \ref{eq:omega}. Wartość progu $x \in [130,250]$.}
+\label{fig:apple_prog}
+\end{figure}
+
+\begin{figure}[h!]
+\centering
+\includegraphics[scale=1.1]{apple_zmienne_r1_i_r2.jpg}
+\caption{Wycena amerykańskiej opcji sprzedaży typu omega clock dla zmiennych wartości oprocentownia $r_1$ i $r_2$ ze wzoru \ref{eq:omega}. Wartości tych stóp procentowych $r_1 \in [0,2.25\%]$, $r_2 \in [2.25\%,4.5\%]$.}
+\label{fig:apple_zal_r1_r2}
+\end{figure}
+
+Na podstawie wykresu \ref{fig:apple_zal_r1_r2} wnioskujemy, że cena maleje wraz ze wzrostem stóp procentowych, co jest zgodne z intuicją.
+
+%{\backmatter \chapter{Podsumowanie}}
+%Podsumowanie w pracach matematycznych nie jest obligatoryjne. Warto jednak na zakończenie krótko napisać, co udało nam się zrobić w pracy, a czasem także o tym, czego nie udało się zrobić.
+
+%{\backmatter \chapter{Dodatek}}
+%Dodatek w pracach matematycznych również nie jest wymagany. Można w nim przedstawić np. jakiś dłuższy dowód, który z pewnych przyczyn pominęliśmy we właściwej części pracy lub (np. w przypadku prac statystycznych) umieścić dane, które analizowaliśmy.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % BIBLIOGRAFIA
